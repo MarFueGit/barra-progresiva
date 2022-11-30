@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}       
+.container {
+        width: 100%;
+        height: 30vh;
+        margin: 25% auto;
+        position: fixed;
+        background-color: #D4EFDF
+        }
+
+        .title{
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 50px;
+            color: darkgray;
+        }
+        .progressbar{
+            counter-reset: pasos; /* establecemos un contador quellamamos pasos*/
+
+        }
+        .progressbar li {
+        list-style-type: none;   /* eliminar el estilo deenumeración del parrafo borra el puntito */
+        float: left;    /*lo lista en horizontal   */
+        width: 33.33%;   /* establece la separación entre los textos va en función de los que tengamos */
+        position: relative;
+        text-align: center;
+        }  
+        .progressbar li::before {     /* a los elementos de progressbar le inserta un '1' */
+            content: counter(pasos); /* establece el contenido según el valos del contador*/
+            counter-increment: pasos;  
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 3px solid #ddd; /* dibuja un cauadradito */
+            display: block;     /* pone los textos debajo del número*/
+            text-align: center;
+            font-weight: bold;
+            margin: 0 auto 10px auto; /* alinea el texto con el numer*/
+            border-radius: 50%;
+            background-color: white;
+            
+
+        }
+        .progressbar li::after{     /* dibujamos la línea que conecta los pasos */
+            content: '';
+            position: absolute;
+            width: 100%;            /* aquí dibuja las líneas entre los pasos */
+            height: 10px;
+            background-color: #ddd;
+            top: 11px;          /* posicion de la linea */
+            left: -50%;         /* movemos el inicio de la primera linea*/
+            z-index: -1;        /* la linea la ponemos por detras back del circulo */
+            
+        }
+        .progressbar li:first-child::after{
+            content: none;          /* la primera línea no la dibuja */
+        }
+        .progressbar li.active1{
+            color: green;
+        }
+        .progressbar li.active1:before {
+            border-color: green;  
+            background-color: green; 
+            color: #fff;
+        } 
+        .progressbar li.active1 + li::after {
+            background-color: green;
+        }    
+        .progressbar li.active2{
+            color: green;
+        }
+        .progressbar li.active2:before {
+            border-color: green;  
+            background-color: green; 
+            color: #fff;  /* Establece el color en la clase activa  */
+        }  
+        .progressbar li.active3{
+            color: green;
+        }
+        .progressbar li.active3:before {
+            border-color: green;  
+            background-color: green; 
+            color: #fff;  /* Establece el color en la clase activa  */
+        } 
+        .progressbar li.active2 + li::after {
+            background-color: green;
+        }     
+        .buton-link{
+            width: 100px;
+            padding: 10px;
+            background-color:green;
+            color: #fff;
+            position: absolute;
+            text-decoration: none;
+            left: 170px;
+            top: 200px;
+            border-radius: 10px;
+            text-align: center;
+            
+        }
+    
+    
